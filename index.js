@@ -124,8 +124,8 @@ client.on('message', (channel, tags, message, self) => {
         if (!(tags.username in registrados)) {
             let objAgregar = { displayName: tags['display-name'], subscriber: tags['subscriber'], clase }
 
-            registrados[tags['display-name']] = objAgregar
-            ultimos_registrados[tags['display-name']] = objAgregar
+            registrados[tags.username] = objAgregar
+            ultimos_registrados[tags.username] = objAgregar
 
             let claseText = clase != 0 ? ` con ${comandos[1].toLocaleLowerCase('en-US')}` : ""
             let chat_msj = `@${tags["display-name"]} juega${claseText}!`
