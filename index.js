@@ -72,7 +72,7 @@ const client = new tmi.Client({
 	connection: { reconnect: true },
 	identity: {
 		username: 'agatatgame',
-		password: ''
+		password: 'asdf'
 	},
 	channels: [canal]
 });
