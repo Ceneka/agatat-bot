@@ -1,3 +1,4 @@
+require('dotenv').config()
 const cors = require('cors')
 const express = require('express')
 const app = express()
@@ -35,6 +36,7 @@ app.get('/reset', (req, res) => {
     let max_participantes = Number.isInteger(parseInt(req.query.maxplayers)) ? parseInt(req.query.maxplayers) : 999
 	let solo_sub = req.query.onlysub === "1"
     
+    registrados = {}
     ultimos_registrados = {}
 	gameSettings = { 
         maxPlayers: max_participantes,
@@ -72,7 +74,7 @@ const client = new tmi.Client({
 	connection: { reconnect: true },
 	identity: {
 		username: 'agatatgame',
-		password: 'asdf'
+		password: process.env.AGATAT_TWITCH_PASS
 	},
 	channels: [canal]
 });
